@@ -41,7 +41,7 @@ class KalkulatorPageNew extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MyTextfield(
+            MyTextField(
               myHint: "Input angka 1",
               txtController: txtangka1,
               radius: 10,
@@ -49,8 +49,8 @@ class KalkulatorPageNew extends StatelessWidget {
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             ),
             const SizedBox(height: 15),
-            MyTextfield(
-              myHint: "Input angka 2",  
+            MyTextField(
+              myHint: "Input angka 2",
               txtController: txtangka2,
               radius: 10,
               keyboardType: TextInputType.number,

@@ -9,7 +9,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   TextEditingController txtUsername = TextEditingController();
 
   @override
@@ -20,10 +19,10 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           Container(
             margin: EdgeInsets.all(10),
-            child: MyTextfield(
-             // myHint: "Input Username",
+            child: MyTextField(
+              // myHint: "Input Username",
               txtController: txtUsername,
-            //  radius: 10,
+              //  radius: 10,
             ),
           ),
           Container(

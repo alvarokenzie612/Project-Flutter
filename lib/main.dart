@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import 'kalkulator_page_new.dart';
+//import 'kalkulator_page_new.dart';
+
+import 'package:testflutter/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,9 +17,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Belajar Flutter PPLG 3',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: KalkulatorPageNew(),
+      initialRoute: Routes.registration,
+      getPages: Routes.myPages,
     );
   }
 }
