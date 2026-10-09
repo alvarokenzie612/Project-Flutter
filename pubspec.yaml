@@ -60,6 +60,11 @@ flutter:
 
   assets:
    - assets/netflix_logo.png
+   - assets/asuslaptop.png
+   - assets/asusrouter.png
+   - assets/asuszenbook.png
+   - assets/rog_9_phone.png
+   - assets/rog_ally.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

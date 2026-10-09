@@ -9,12 +9,12 @@ import '../components/mytextview.dart';
 // atau diganti text bawaan jika diperlukan.
 
 class RegistrationPage extends StatelessWidget {
-  const RegistrationPage({super.key});
+  RegistrationPage({super.key});
+
+  final controller = Get.put(RegistrationController());
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(RegistrationController());
-
     return Scaffold(
       backgroundColor: Colors.white, // Background putih senada dengan gambar
       appBar: AppBar(
@@ -55,17 +55,16 @@ class RegistrationPage extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
-              // Alamat Field (Bisa dibuat multiline layaknya 'Message' di gambar)
               TextFormField(
                 controller: controller.txtAlamat,
                 maxLines:
-                    3, // Dibuat lebih lebar seperti input "Message" di gambar
+                    3, 
                 decoration: InputDecoration(
                   hintText: "Alamat",
                   prefixIcon: const Padding(
                     padding: EdgeInsets.only(
                       bottom: 40,
-                    ), // Menyesuaikan posisi icon untuk multiline
+                    ), 
                     child: Icon(Icons.location_on, color: Colors.blue),
                   ),
                   contentPadding: const EdgeInsets.symmetric(
