@@ -1,5 +1,3 @@
-
-
 class ProdukModel {
   String namaProduk;
   String harga;

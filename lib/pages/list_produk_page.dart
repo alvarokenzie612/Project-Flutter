@@ -21,97 +21,180 @@ class ListProdukPage extends StatelessWidget {
       ),
       body: Container(
         margin: const EdgeInsets.all(10),
-        child: ListView.builder(
-          itemCount: controller.listProduk.length,
-          itemBuilder: (context, index) {
-            final produk = controller.listProduk[index];
-            return GestureDetector(
-              onTap: () {
-                Get.toNamed(
-                  Routes.detailProduk,
-                  arguments: {
-                    'nama_produk': produk.namaProduk,
-                    'harga_produk': produk.harga,
-                    'deskripsi_produk': produk.description,
-                    'image_url': produk.imageProduk,
-                    'review_produk': produk.reviews.toString(),
-                    'rating_produk': produk.rating.toString(),
-                    'nama_toko': produk.namaToko,
+        child: RefreshIndicator(
+          color: const Color(0xFFD32F2F),
+          onRefresh: () async {
+            controller.reload();
+          },
+          child: Obx(
+            () => ListView.builder(
+              physics: const AlwaysScrollableScrollPhysics(),
+              itemCount: controller.listProduk.length,
+              itemBuilder: (context, index) {
+                final produk = controller.listProduk[index];
+
+                return Dismissible(
+                  key: ValueKey(produk.namaProduk),
+                  direction: DismissDirection.startToEnd,
+                  background: Container(
+                    margin: const EdgeInsets.only(bottom: 12),
+                    padding: const EdgeInsets.only(left: 20),
+                    alignment: Alignment.centerLeft,
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: const Icon(
+                      Icons.delete,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  ),
+                  onDismissed: (direction) {
+                    controller.listProduk.removeAt(index);
                   },
-                );
-              },
-              child: Card(
-                color: const Color(0xFF1E1E1E),
-                margin: const EdgeInsets.only(bottom: 12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  side: const BorderSide(color: Color(0xFFD32F2F), width: 1),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: ListTile(
-                    leading: MyImageView(
-                      imageUrl: produk.imageProduk,
-                      width: 60,
-                      height: 60,
-                    ),
-                    title: Padding(
-                      padding: const EdgeInsets.only(bottom: 4.0),
-                      child: MyTextView(
-                        text: produk.namaProduk,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        color: Colors.white,
-                      ),
-                    ),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        MyTextView(
-                          text: produk.harga,
-                          color: Colors.redAccent,
-                          fontWeight: FontWeight.w600,
+                  child: GestureDetector(
+                    onLongPress: () {
+                      showModalBottomSheet(
+                        context: context,
+                        backgroundColor: const Color(0xFF1E1E1E),
+                        builder: (context) {
+                          return Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              ListTile(
+                                leading: const Icon(
+                                  Icons.info_outline,
+                                  color: Colors.white,
+                                ),
+                                title: const Text(
+                                  "Detail Produk",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                onTap: () {
+                                  Navigator.pop(context);
+                                  Get.toNamed(
+                                    Routes.detailProduk,
+                                    arguments: {
+                                      'nama_produk': produk.namaProduk,
+                                      'harga_produk': produk.harga,
+                                      'deskripsi_produk': produk.description,
+                                      'image_url': produk.imageProduk,
+                                      'review_produk': produk.reviews
+                                          .toString(),
+                                      'rating_produk': produk.rating.toString(),
+                                      'nama_toko': produk.namaToko,
+                                    },
+                                  );
+                                },
+                              ),
+                              ListTile(
+                                leading: const Icon(
+                                  Icons.delete,
+                                  color: Colors.redAccent,
+                                ),
+                                title: const Text(
+                                  "Hapus Produk",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                onTap: () {
+                                  controller.listProduk.removeAt(
+                                    controller.listProduk.indexOf(produk),
+                                  );
+                                  Navigator.pop(context);
+                                },
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                    child: Card(
+                      color: const Color(0xFF1E1E1E),
+                      margin: const EdgeInsets.only(bottom: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        side: const BorderSide(
+                          color: Color(0xFFD32F2F),
+                          width: 1,
                         ),
-                        const SizedBox(height: 6),
-                        Row(
+                      ),
+                      child: ListTile(
+                        contentPadding: const EdgeInsets.all(10),
+                        leading: MyImageView(
+                          imageUrl: produk.imageProduk,
+                          width: 60,
+                          height: 60,
+                        ),
+                        title: Padding(
+                          padding: const EdgeInsets.only(bottom: 4.0),
+                          child: MyTextView(
+                            text: produk.namaProduk,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
+                        ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             MyTextView(
-                              text: produk.namaToko,
-                              fontSize: 12,
-                              color: Colors.grey,
+                              text: produk.harga,
+                              color: Colors.redAccent,
+                              fontWeight: FontWeight.w600,
                             ),
-                            const SizedBox(width: 4),
-                            const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                              size: 14,
-                            ),
-                            const SizedBox(width: 4),
-                            MyTextView(
-                              text:
-                                  "${produk.rating} (${produk.reviews} ulasan)",
-                              fontSize: 12,
-                              color: Colors.grey,
+                            const SizedBox(height: 6),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: MyTextView(
+                                    text: produk.namaToko,
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                const Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                  size: 14,
+                                ),
+                                const SizedBox(width: 4),
+                                MyTextView(
+                                  text:
+                                      "${produk.rating} (${produk.reviews} ulasan)",
+                                  fontSize: 12,
+                                  color: Colors.grey,
+                                ),
+                              ],
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                    trailing: const Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
+                        trailing: const Icon(
                           Icons.arrow_forward_ios,
                           size: 16,
                           color: Colors.redAccent,
                         ),
-                      ],
+                        onTap: () {
+                          Get.toNamed(
+                            Routes.detailProduk,
+                            arguments: {
+                              'nama_produk': produk.namaProduk,
+                              'harga_produk': produk.harga,
+                              'deskripsi_produk': produk.description,
+                              'image_url': produk.imageProduk,
+                              'review_produk': produk.reviews.toString(),
+                              'rating_produk': produk.rating.toString(),
+                              'nama_toko': produk.namaToko,
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ),
-                ),
-              ),
-            );
-          },
+                );
+              },
+            ),
+          ),
         ),
       ),
     );

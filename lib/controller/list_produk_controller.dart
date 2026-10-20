@@ -2,7 +2,7 @@ import 'package:testflutter/models/produk_model.dart';
 import 'package:get/get.dart';
 
 class ListProdukController extends GetxController {
-  List<ProdukModel> listProduk = [
+  final RxList<ProdukModel> listProduk = <ProdukModel>[
     ProdukModel(
       namaProduk: "ROG Phone 9",
       harga: "Rp 15.000.000",
@@ -48,5 +48,17 @@ class ListProdukController extends GetxController {
       rating: 4.9,
       namaToko: "ROG Accessories",
     ),
-  ];
+  ].obs;
+
+  final List<ProdukModel> produkAwal = [];
+
+  @override
+  void onInit() {
+    super.onInit();
+    produkAwal.addAll(listProduk);
+  }
+
+  void reload() {
+    listProduk.assignAll(produkAwal);
+  }
 }

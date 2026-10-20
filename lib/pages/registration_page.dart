@@ -86,7 +86,7 @@ class RegistrationPage extends StatelessWidget {
               // Jenis Kelamin Field
               Obx(
                 () => DropdownButtonFormField<String>(
-                  value: controller.jenisKelamin.value == ''
+                  initialValue: controller.jenisKelamin.value == ''
                       ? null
                       : controller.jenisKelamin.value,
                   decoration: InputDecoration(

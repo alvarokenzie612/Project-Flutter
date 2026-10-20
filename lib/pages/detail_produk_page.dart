@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:testflutter/controller/list_produk_detail_controller.dart';
 import 'package:testflutter/components/mytextview.dart';
 import 'package:testflutter/components/myimageview.dart';
-import 'package:testflutter/components/mybutton.dart';
+
+//import 'package:testflutter/components/mybutton.dart';
 
 class DetailProdukPage extends StatelessWidget {
   DetailProdukPage({super.key});
@@ -19,7 +20,7 @@ class DetailProdukPage extends StatelessWidget {
         backgroundColor: const Color(0xFFD32F2F),
         foregroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
+      body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,16 +93,6 @@ class DetailProdukPage extends StatelessWidget {
                 text: detailController.deskripsiProduk,
                 fontSize: 15,
                 color: Colors.white70,
-              ),
-            ),
-            const SizedBox(height: 40),
-            SizedBox(
-              width: double.infinity,
-              child: MyButton(
-                text: "Kembali",
-                onPressed: () {
-                  Get.back();
-                },
               ),
             ),
           ],
