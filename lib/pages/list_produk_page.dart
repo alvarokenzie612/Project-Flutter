@@ -4,6 +4,7 @@ import 'package:testflutter/controller/list_produk_controller.dart';
 import 'package:testflutter/components/mytextview.dart';
 import 'package:testflutter/components/myimageview.dart';
 import 'package:testflutter/routes.dart';
+import 'package:flutter/services.dart';
 
 class ListProdukPage extends StatelessWidget {
   ListProdukPage({super.key});
@@ -63,6 +64,7 @@ class ListProdukPage extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               ListTile(
+                                //lihat detail produk
                                 leading: const Icon(
                                   Icons.info_outline,
                                   color: Colors.white,
@@ -89,6 +91,28 @@ class ListProdukPage extends StatelessWidget {
                                 },
                               ),
                               ListTile(
+                                //salin nama produk
+                                leading: const Icon(
+                                  Icons.copy,
+                                  color: Colors.white,
+                                ),
+                                title: const Text(
+                                  "Salin Nama Produk",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                onTap: () {
+                                  Clipboard.setData(
+                                    ClipboardData(text: produk.namaProduk),
+                                  );
+                                  Navigator.pop(context);
+                                  Get.snackbar(
+                                    "Berhasil",
+                                    "Nama produk berhasil disalin",
+                                  );
+                                },
+                              ),
+                              ListTile(
+                                //hapus produk
                                 leading: const Icon(
                                   Icons.delete,
                                   color: Colors.redAccent,
