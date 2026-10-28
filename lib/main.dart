@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Belajar Flutter PPLG 3',
       theme: ThemeData(primarySwatch: Colors.blue),
-      initialRoute: Routes.mainmenuPage,
+      initialRoute: Routes.menuDrawer,
       getPages: Routes.myPages,
     );
   }
