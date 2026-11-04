@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+
 import '../menu/home_page.dart';
 import '../menu/history_page.dart';
 import '../menu/profile_page.dart';
@@ -11,9 +12,5 @@ class MainMenuController extends GetxController {
     selectedIndex.value = index;
   }
 
-  List<Widget> listPages = [
-    HomePage(),
-    HistoryPage(),
-    ProfilePage(),
-  ];
+  List<Widget> listPages = [HomePage(), HistoryPage(), ProfilePage()];
 }

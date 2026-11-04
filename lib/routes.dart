@@ -8,6 +8,7 @@ import 'package:testflutter/pages/menu_drawer_page.dart';
 import 'package:testflutter/menu/home_page.dart';
 import 'package:testflutter/menu/profile_page.dart';
 import 'package:testflutter/menu/history_page.dart';
+import 'package:testflutter/pages/login_clone_fix.dart';
 
 class Routes {
   static const String registration = "/registration";
@@ -17,6 +18,9 @@ class Routes {
   static const String detailProduk = "/detailProduk";
   static const String menuDrawer = "/menudrawer";
   static const String homePage = "/homepage";
+  static const String historyPage = "/historypage";
+  static const String profilePage = "/profilepage";
+  static const String loginCloneFix = "/loginCloneFix";
 
   static final myPages = [
     GetPage(name: registration, page: () => RegistrationPage()),
@@ -25,8 +29,9 @@ class Routes {
     GetPage(name: mainmenuPage, page: () => MainMenuPage()),
     GetPage(name: detailProduk, page: () => DetailProdukPage()),
     GetPage(name: menuDrawer, page: () => MenuDrawerPage()),
-    GetPage(name: menuDrawer, page: () => HomePage()),
-    GetPage(name: menuDrawer, page: () => HistoryPage()),
-    GetPage(name: menuDrawer, page: () => ProfilePage()),
+    GetPage(name: homePage, page: () => HomePage()),
+    GetPage(name: historyPage, page: () => HistoryPage()),
+    GetPage(name: profilePage, page: () => ProfilePage()),
+    GetPage(name: loginCloneFix, page: () => LoginCloneFix()),
   ];
 }
