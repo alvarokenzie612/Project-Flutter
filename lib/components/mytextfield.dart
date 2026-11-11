@@ -3,6 +3,7 @@ import 'package:flutter/services.dart'; // Wajib tambah ini
 
 class MyTextField extends StatelessWidget {
   final TextEditingController txtController;
+  final Color textColor;
   final String? myHint;
   final double radius;
   final bool isPassword;
@@ -12,6 +13,7 @@ class MyTextField extends StatelessWidget {
   const MyTextField({
     super.key,
     required this.txtController,
+    required this.textColor,
     this.myHint,
     this.radius = 0,
     this.isPassword = false,
@@ -23,6 +25,7 @@ class MyTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: txtController,
+      style: TextStyle(color: textColor),
       obscureText: isPassword,
       keyboardType: keyboardType,
       inputFormatters: inputFormatters, // Pasang ke TextField bawaan

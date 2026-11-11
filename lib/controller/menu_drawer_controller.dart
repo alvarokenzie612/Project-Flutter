@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:testflutter/menu/home_page.dart';
 import 'package:testflutter/menu/history_page.dart';
 import 'package:testflutter/menu/profile_page.dart';
+import 'package:testflutter/pages/laliga_produk_page.dart';
 
 class MenuDrawerController extends GetxController {
   final RxInt selectedIndex = 0.obs;
@@ -11,5 +12,10 @@ class MenuDrawerController extends GetxController {
     selectedIndex.value = index;
   }
 
-  final List<Widget> listPages = [HomePage(), HistoryPage(), ProfilePage()];
+  final List<Widget> listPages = [
+    HomePage(),
+    HistoryPage(),
+    ProfilePage(),
+    LaligaProdukPage(),
+  ];
 }

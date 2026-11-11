@@ -7,7 +7,12 @@ class MenuDrawerPage extends StatelessWidget {
 
   final menuDrawerController = Get.put(MenuDrawerController());
 
-  final List<String> judulHalaman = ['ROG Store', 'History', 'Profile'];
+  final List<String> judulHalaman = [
+    'ROG Store',
+    'History',
+    'Profile',
+    'LaLiga',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +47,8 @@ class MenuDrawerPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 onTap: () {
-                  Get.back(); // Tutup laci
-                  menuDrawerController.changeIndex(0); // Panggil fungsi index 0
+                  Get.back();
+                  menuDrawerController.changeIndex(0);
                 },
               ),
               ListTile(
@@ -53,8 +58,8 @@ class MenuDrawerPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 onTap: () {
-                  Get.back(); // Tutup laci
-                  menuDrawerController.changeIndex(1); // Panggil fungsi index 1
+                  Get.back();
+                  menuDrawerController.changeIndex(1);
                 },
               ),
               ListTile(
@@ -64,8 +69,19 @@ class MenuDrawerPage extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 onTap: () {
-                  Get.back(); // Tutup laci
-                  menuDrawerController.changeIndex(2); // Panggil fungsi index 2
+                  Get.back();
+                  menuDrawerController.changeIndex(2);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.sports_soccer, color: Colors.white),
+                title: const Text(
+                  'LaLiga',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onTap: () {
+                  Get.back();
+                  menuDrawerController.changeIndex(3);
                 },
               ),
             ],

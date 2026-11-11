@@ -40,6 +40,7 @@ class LoginCloneFix extends StatelessWidget {
               MyTextField(
                 txtController: controller.txtUsername,
                 myHint: "Email or phone number",
+                textColor: Colors.white,
                 radius: 4,
               ),
               const SizedBox(height: 15),
@@ -47,6 +48,7 @@ class LoginCloneFix extends StatelessWidget {
                 txtController: controller.txtPassword,
                 isPassword: true,
                 myHint: "Password",
+                textColor: Colors.white,
                 radius: 4,
               ),
               const SizedBox(height: 25),

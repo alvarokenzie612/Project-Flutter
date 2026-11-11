@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testflutter/controller/list_produk_controller.dart';
+import 'package:testflutter/controller/list_produk_detail_controller.dart';
 import 'package:testflutter/components/mytextview.dart';
 import 'package:testflutter/components/myimageview.dart';
 import 'package:testflutter/routes.dart';
@@ -9,7 +10,7 @@ import 'package:flutter/services.dart';
 class ListProdukPage extends StatelessWidget {
   ListProdukPage({super.key});
 
-  final controller = Get.put(ListProdukController());
+  final controller = Get.put(ListProdukController()); 
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +65,6 @@ class ListProdukPage extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               ListTile(
-                                //lihat detail produk
                                 leading: const Icon(
                                   Icons.info_outline,
                                   color: Colors.white,
@@ -91,7 +91,6 @@ class ListProdukPage extends StatelessWidget {
                                 },
                               ),
                               ListTile(
-                                //salin nama produk
                                 leading: const Icon(
                                   Icons.copy,
                                   color: Colors.white,
@@ -112,7 +111,6 @@ class ListProdukPage extends StatelessWidget {
                                 },
                               ),
                               ListTile(
-                                //hapus produk
                                 leading: const Icon(
                                   Icons.delete,
                                   color: Colors.redAccent,

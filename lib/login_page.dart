@@ -23,13 +23,17 @@ class _LoginPageState extends State<LoginPage> {
               // myHint: "Input Username",
               txtController: txtUsername,
               //  radius: 10,
+              textColor: Colors.white,
             ),
           ),
           Container(
             margin: EdgeInsets.all(10),
-            child: TextField(
-              obscureText: true,
-              decoration: InputDecoration(hint: Text("Input password")),
+            child: MyTextField(
+              // myHint: "Input Password",
+              txtController: TextEditingController(),
+              //  radius: 10,
+              textColor: Colors.white,
+              isPassword: true,
             ),
           ),
           Row(

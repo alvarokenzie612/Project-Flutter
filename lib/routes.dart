@@ -9,6 +9,7 @@ import 'package:testflutter/menu/home_page.dart';
 import 'package:testflutter/menu/profile_page.dart';
 import 'package:testflutter/menu/history_page.dart';
 import 'package:testflutter/pages/login_clone_fix.dart';
+import 'package:testflutter/pages/laliga_produk_page.dart';
 
 class Routes {
   static const String registration = "/registration";
@@ -21,6 +22,7 @@ class Routes {
   static const String historyPage = "/historypage";
   static const String profilePage = "/profilepage";
   static const String loginCloneFix = "/loginCloneFix";
+  static const String laligaProdukPage = "/laligaProdukPage";
 
   static final myPages = [
     GetPage(name: registration, page: () => RegistrationPage()),
@@ -33,5 +35,6 @@ class Routes {
     GetPage(name: historyPage, page: () => HistoryPage()),
     GetPage(name: profilePage, page: () => ProfilePage()),
     GetPage(name: loginCloneFix, page: () => LoginCloneFix()),
+    GetPage(name: laligaProdukPage, page: () => LaligaProdukPage()),
   ];
 }

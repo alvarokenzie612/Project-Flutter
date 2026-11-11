@@ -47,6 +47,7 @@ class KalkulatorPageNew extends StatelessWidget {
               radius: 10,
               keyboardType: TextInputType.number,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              textColor: Colors.white,
             ),
             const SizedBox(height: 15),
             MyTextField(
@@ -54,6 +55,7 @@ class KalkulatorPageNew extends StatelessWidget {
               txtController: txtangka2,
               radius: 10,
               keyboardType: TextInputType.number,
+              textColor: Colors.white,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             ),
             const SizedBox(height: 25),
